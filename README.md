@@ -96,12 +96,26 @@ cp -r skills/claude/plan-to-linear ~/.claude/skills/
 
 ### Prerequisites
 
-- **Linear MCP server** configured on each platform:
+- **Git** — all skills assume a git repository. [Install](https://git-scm.com/downloads)
+- **GitHub CLI (`gh`)** — used by `linear-ticket` (push branches, open PRs, create worktrees) and `code-review` (fetch PR diffs, post review comments). [Install](https://cli.github.com/)
+  ```bash
+  # Install (macOS)
+  brew install gh
+
+  # Install (Linux)
+  sudo apt install gh  # Debian/Ubuntu
+  sudo dnf install gh  # Fedora
+
+  # Authenticate
+  gh auth login
+
+  # Verify
+  gh auth status
+  ```
+- **Linear MCP server** — used by all skills for ticket creation, status updates, and comment posting. Configure on each platform:
   - Hermes: `hermes mcp add linear --url https://mcp.linear.app/mcp`
   - Claude Code: `claude mcp add linear --url https://mcp.linear.app/mcp`
   - Codex: `codex mcp add linear --url https://mcp.linear.app/mcp` (requires `rmcp` feature)
-- **`gh` CLI** for GitHub PR operations (used by `linear-ticket` and `code-review`)
-- **Git** — all skills assume a git repository
 
 ## Key Design Principles
 
