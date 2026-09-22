@@ -1,6 +1,6 @@
 # Agent Workflow Skills
 
-A collection of AI agent skills that form a complete development workflow: **architect a system → plan a ticket → implement it → review the code → release to production → respond to incidents → audit health, security, performance, and tests**. Each skill is installed globally on three platforms with platform-specific tool references.
+A collection of AI agent skills that form a complete development workflow: **architect a system → plan a ticket → implement it → review the code → release to production → respond to incidents → audit health, security, performance, and tests → generate docs → upgrade dependencies**. Each skill is installed globally on three platforms with platform-specific tool references.
 
 ```
 architecture-spec → plan-to-linear → linear-ticket → code-review → release-deploy
@@ -26,6 +26,8 @@ architecture-spec → plan-to-linear → linear-ticket → code-review → relea
 | 8 | **performance-audit** | Finds performance bottlenecks: N+1 queries, memory leaks, slow hot paths, oversized bundles, unnecessary re-renders, sync I/O in async paths, missing pagination. Measures against latency budgets. |
 | 9 | **incident-response** | Triage incidents (SEV-1 to SEV-4), stabilize (rollback or fix-forward), root cause analysis (git bisect, deploy diff), blameless postmortem with timeline and action items, Linear tickets for fixes, runbook update. |
 | 10 | **test-strategy** | Maps test coverage against risk, finds tests that can't fail, detects excessive mocking and snapshot tests, identifies missing test types (failure modes, edge cases), designs the test pyramid per feature, creates a test plan with acceptance criteria. |
+| 11 | **docs-gen** | Generates and maintains documentation from code: API docs (OpenAPI/Swagger), READMEs, CHANGELOGs, runbooks, and inline docstrings. Detects documentation drift (docs that don't match code) and flags mismatches. |
+| 12 | **dep-upgrade** | Scans for outdated dependencies, classifies by risk (patch/minor/major/security), reads changelogs for breaking changes, upgrades one batch at a time with test verification against a baseline, creates a PR per batch. |
 
 ## Platforms
 
@@ -58,7 +60,9 @@ agent-workflow-skills/
     │   ├── security-audit/                # SKILL.md + templates/report.md
     │   ├── performance-audit/             # SKILL.md + templates/report.md
     │   ├── incident-response/             # SKILL.md + templates/postmortem.md
-    │   └── test-strategy/                 # SKILL.md + templates/report.md
+    │   ├── test-strategy/                 # SKILL.md + templates/report.md
+    │   ├── docs-gen/                      # SKILL.md + templates/report.md
+    │   └── dep-upgrade/                   # SKILL.md + templates/report.md
     ├── claude/                            # Claude Code versions (same structure)
     └── codex/                             # Codex CLI versions (same structure)
 ```
