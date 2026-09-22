@@ -8,13 +8,19 @@
 
 ## Overview
 
-Five skills that form a complete development workflow: architect a system, plan
-a ticket, implement it, review the code, and audit the repo's health. Each skill
-is installed globally on all three platforms with platform-specific tool references.
+Ten skills that form a complete development workflow: architect a system, plan
+a ticket, implement it, review the code, release to production, respond to
+incidents, and audit health, security, performance, and tests. Each skill is
+installed globally on all three platforms with platform-specific tool references.
 
 ```
-architecture-spec → plan-to-linear → linear-ticket → code-review → repo-health
-     design             plan           implement       review         audit
+architecture-spec → plan-to-linear → linear-ticket → code-review → release-deploy
+     design             plan           implement       review         deploy
+                          ↑               ↓                               ↓
+                    test-strategy     repo-health                  incident-response
+                    (designs tests)        ↓                          (postmortem)
+                                      security-audit
+                                      performance-audit
 ```
 
 All skills are **global scope** — they live in user-level directories and apply to
@@ -402,6 +408,11 @@ The MCP server provides: `get_issue`, `get_comments`, `get_teams`,
 | `plan-to-linear` | `SKILL.md` + `templates/plan.md` |
 | `linear-ticket` | `SKILL.md` + `OVERNIGHT.md` |
 | `code-review` | `SKILL.md` + `templates/review.md` |
+| `release-deploy` | `SKILL.md` + `templates/release.md` |
 | `repo-health` | `SKILL.md` + `templates/report.md` |
+| `security-audit` | `SKILL.md` + `templates/report.md` |
+| `performance-audit` | `SKILL.md` + `templates/report.md` |
+| `incident-response` | `SKILL.md` + `templates/postmortem.md` |
+| `test-strategy` | `SKILL.md` + `templates/report.md` |
 
-Total: 5 skills × 3 platforms = 15 installations, 30 files.
+Total: 10 skills × 3 platforms = 30 installations, 60 files.
